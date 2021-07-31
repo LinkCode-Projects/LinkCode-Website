@@ -1,0 +1,109 @@
+{%  extends 'App/base.html' %}
+
+{% block title %}{% for x in course%} {{x.title}} | LinkCode Technologies Pune | Enroll Now{% endfor %} {% endblock %}
+
+
+{% block body %}
+
+
+{% for x in course%}
+
+
+
+{% if messages %}
+{% for x in messages %}
+<div class="uk-container">
+    <div class="uk-alert-{{x.tags}}" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p style="text-align:center">{{x}}</p>
+</div>
+</div>
+{% endfor %}
+{% endif %}
+
+<div class="header_img" style="position:relative">
+    <img src="/media/{{x.header_img}}" class="uk-align-center" uk-img >
+    <div class="info uk-visible@l"  style="position:absolute;bottom: 8vh;left: 16vh;color:white">
+    </div>
+</div>
+
+<div class="uk-container">
+    <h2 style="text-align:center;margin-top:4vh">Welcome to {{x.title}}</h2>
+    <h3 style="text-align:center;margin-top:4vh">About This Course</h3>
+    <p>{{x.atc}}</p>
+    <div class="uk-child-width-1-2@s" uk-grid>
+        <div>
+            <img src="/media/{{x.course_image}}" class="uk-align-center" style="height:50vh" uk-img>
+        </div>
+        <div>
+            <h3 style="text-align:center">Skills You learn</h3>
+            {{x.skills}}
+        </div>
+    </div>
+    <hr>
+
+</div>
+
+
+
+
+
+<div class="uk-container">
+<h3 style="text-align:center;margin-top:4vh">Course Features</h3>
+<div class="uk-grid-match uk-child-width-expand@s uk-text-center" uk-grid>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body uk-padding uk-light" style="background-color: #1fd1f9;background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);border-radius:30px"><span uk-icon="icon: credit-card;ratio: 3.5 "></span><br>Shareable Certificate Earn a Certificate upon completion</div>
+     </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body uk-padding uk-light" style="background-color: #f876de;background-image: linear-gradient(315deg, #f876de 0%, #b9d1eb 74%);border-radius:30px"><span uk-icon="icon: calendar;ratio: 3.5 "></span><br>Flexible Schedule Set and maintain flexible deadlines.</div>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body uk-padding uk-light" style="background-color: #f907fc;background-image: linear-gradient(315deg, #f907fc 0%, #05d6d9 74%);border-radius:30px"><span uk-icon="icon:  happy;ratio: 3.5 "></span><br>Beginner Level No prior experience required.</div>
+    </div>
+</div>
+
+
+<div class="uk-grid-match uk-child-width-expand@s uk-text-center" uk-grid>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body uk-padding uk-light" style="background-color: #726cf8;background-image: linear-gradient(315deg, #726cf8 0%, #e975a8 74%);border-radius:30px"><span uk-icon="icon: world;ratio: 3.5 "></span><br>100% online courses Start instantly and learn at your own schedule.</div>
+     </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body uk-padding uk-light" style="background-color: #96c8fb;background-image: linear-gradient(315deg, #96c8fb 0%, #ddbdfc 74%);border-radius:30px"><span uk-icon="icon:clock ;ratio: 3.5 "></span><br>Approx. 5 months to complete Suggested 4 hours/week</div>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body uk-padding uk-light" style="border-radius:30px;background-color: #03e5b7;background-image: linear-gradient(315deg, #03e5b7 0%, #037ade 74%);"><span uk-icon="icon:commenting;ratio: 3.5 "></span><br>Learn in your native languages(English/Hindi/Marathi)</div>
+    </div>
+</div>
+</div>
+<hr>
+<div class="uk-container">
+<div class="uk-child-width-1-2@s" style="margin-top:5vh" uk-grid>
+    <div style="margin-top:5vh">
+        <h2>Start Today with a 7-Day Free Trial</h2>
+        <div ><span style="color:red" uk-icon="icon: check; ratio: 1.5"></span>&nbsp;<span style="font-size:2.5vh;padding-left:10px">Shareable Specialization and Course Certificates</span></div>
+        <div ><span style="color:red" uk-icon="icon: check; ratio: 1.5"></span>&nbsp;<span style="font-size:2.5vh;padding-left:10px">Self-Paced Learning Option</span></div>
+        <div ><span style="color:red" uk-icon="icon: check; ratio: 1.5"></span>&nbsp;<span style="font-size:2.5vh;padding-left:10px">Course Videos & Readings</span></div>
+        <div ><span style="color:red" uk-icon="icon: check; ratio: 1.5"></span>&nbsp;<span style="font-size:2.5vh;padding-left:10px">Practice Quizzes</span></div>
+        <div ><span style="color:red" uk-icon="icon: check; ratio: 1.5"></span>&nbsp;<span style="font-size:2.5vh;padding-left:10px">Graded Assignments with Peer Feedback</span></div>
+        <div ><span style="color:red" uk-icon="icon: check; ratio: 1.5"></span>&nbsp;<span style="font-size:2.5vh;padding-left:10px">Graded Quizzes with Feedback</span></div>
+        <div ><span style="color:red" uk-icon="icon: check; ratio: 1.5"></span>&nbsp;<span style="font-size:2.5vh;padding-left:10px">Graded Programming Assignments</span></div>
+
+        <form method="post">{% csrf_token %}
+            <input type="text" name="username" value="{{request.user}}" hidden>
+            <input type="email" name="email" value="{{request.user.email}}" hidden>
+            <input type="text" name="course" value="{{x.title}}" hidden>
+            <input type="text" name="timestamp" value="{{time}}" hidden>
+
+            <button class="uk-button uk-button-default uk-light" style="margin-top:10px;background-color: #2a2a72;background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);">Enroll For Free<br>Starts - {{time}}</button>
+        </form>
+
+    </div>
+    <div>
+        <img src="/media/{{x.certificate}}" class="uk-align-center" uk-img>
+    </div>
+</div>
+</div>
+<hr>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'App/base.html'%}
+{% load static %}
+{% block title%}Blog | LinkCode Technologies Pune{% endblock %}
+{% block body %}
+<div class="uk-container">
+    <h1 style="margin-top:30px">LinkCode <b>Blog</b></h1>
+    <hr>
+    <div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
+        <div>
+            <img src="{% static 'App/blogspot.png' %}" uk-img>
+        </div>
+        {% for x in first%}
+        <div>
+            <div class="uk-card uk-card-default">
+                <div class="uk-card-media-top">
+                    <a href="/ReadBlog/{{x.notice_id}}"><img src="/media/{{x.image}}" alt="" uk-img></a>
+                </div>
+                <div class="uk-card-body">
+                    <h3 class="uk-card-title">{{x.title}}</h3>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!----Bottom Cards---->
+
+    <div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
+        {% for x in blogs %}
+        <div>
+            <div class="uk-card uk-card-default">
+                <div class="uk-card-media-top">
+                    <a href="/ReadBlog/{{x.notice_id}}"><img src="/media/{{x.image}}" alt="" uk-img></a>
+                </div>
+                <div class="uk-card-body">
+                    <h3 class="uk-card-title">{{x.title}}</h3>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+</div>
+
+<!--
+<div class="uk-child-width-expand@s uk-text-center" uk-grid>
+    {% for x in blog %}
+    <div>
+        <div class="uk-card uk-card-default">
+            <div class="uk-card-media-top">
+                <img src="" alt="">
+            </div>
+            <div class="uk-card-body">
+                <h3 class="uk-card-title"></h3>
+                <p></p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+-->
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'App/features.html'%}
+{% load static %}
+
+{% block nav_style %}
+background-color: #f8ceec;
+background-image: linear-gradient(315deg, #f8ceec 0%, #a88beb 74%);
+{% endblock %}
+
+{% block nav_head %}
+font-size:5vh;
+                    background:linear-gradient(315deg, #f9ea8f 0%, #aff1da 74%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+{% endblock %}
+
+
+{% block body %}
+<h1 style="text-align:center">LinkCode News and Updates</h1>
+<img src="{% static 'App/news.png'%}" class="uk-align-center" uk-img>
+<div class="uk-container">
+    <table class="uk-table uk-table-middle uk-table-divider">
+    <thead>
+        <tr>
+            <th class="uk-width-small" style="text-align:center">Sr No.</th>
+            <th style="text-align:center">News And Updates</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            {%for x in news%}
+            <td style="text-align:center">{{x.news_id}}</td>
+            <td style="text-align:center"><a href="/NewsDetails/{{x.news_id}}">{{x.news_title}}</a></td>
+            {% endfor %}
+        </tr>
+    </tbody>
+</table>
+</div>
+
+
+{% endblock %}

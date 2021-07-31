@@ -1,0 +1,47 @@
+{% extends 'App/base.html'%}
+{% block body %}
+<div class="uk-container">
+    {% for x in review %}
+        <h2 style="margin-top:30px">Review By <b>{{x.username}}</b> </h2>
+        <h5>Status : {{x.status}} | For {{x.course}}</h5>
+
+    <hr>
+
+    <!-------Article ------------>
+    <article class="uk-comment uk-comment-primary uk-visible-toggle" tabindex="-1">
+                    <header class="uk-comment-header uk-position-relative">
+                        <div class="uk-grid-medium uk-flex-middle" uk-grid>
+                            <div class="uk-width-auto">
+                                <img class="uk-comment-avatar" src="images/avatar.jpg" width="80" height="80" alt="">
+                            </div>
+                            <div class="uk-width-expand">
+                                <h4 class="uk-comment-title uk-margin-remove"><a class="uk-link-reset" href="#">{{x.username}}</a></h4>
+                                <p class="uk-comment-meta uk-margin-remove-top"><a class="uk-link-reset" href="#">{{x.date}}</a></p>
+                            </div>
+                        </div>
+                        <div class="uk-position-top-right uk-position-small uk-hidden-hover"><a class="uk-link-muted" href="#">{{x.course}}</a></div>
+                    </header>
+                    <div class="uk-comment-body">
+                        <p>{{x.msg}}</p>
+                    </div>
+    </article>
+
+
+    <form method="post">{% csrf_token %}
+         <select class="uk-select uk-width-1-2" style="margin-top:10px" name="status">
+                <option>Approve</option>
+                <option>Reject</option>
+         </select>
+        <button class=" uk-button uk-button-primary" style="margin-top:10px">Submit</button>
+    </form>
+
+
+
+    <!-------Article ------------>
+
+
+
+    {% endfor%}
+
+</div>
+{% endblock %}

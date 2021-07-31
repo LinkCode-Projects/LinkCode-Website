@@ -1,0 +1,117 @@
+{% extends 'App/base.html' %}
+{% load static %}
+{% block title%}AI | LinkCode Technologies |Pune{% endblock %}
+{% block body %}
+{% if messages %}
+{% for x in messages %}
+<div class="uk-container">
+    <div class="uk-alert-{{x.tags}}" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p style="text-align:center">{{x}}</p>
+</div>
+</div>
+{% endfor %}
+{% endif %}
+
+<img src="{% static 'App/ail.jpeg'%}" uk-img>
+<div class="uk-container" style="margin-top:5vh">
+<h2 style="text-align:center">About This Course</h2>
+<p>If you are a software developer who wants to build scalable AI-powered algorithms, you need to understand how to use the tools to build them. This course is part of the upcoming Machine Learning in Tensorflow Specialization and will teach you best practices for using TensorFlow, a popular open-source framework for machine learning.
+
+The Machine Learning course and Deep Learning Specialization from Andrew Ng teach the most important and foundational principles of Machine Learning and Deep Learning. This new deeplearning.ai TensorFlow Specialization teaches you how to use TensorFlow to implement those principles so that you can start building and applying scalable models to real-world problems. To develop a deeper understanding of how neural networks work, we recommend that you take the Deep Learning Specialization.
+
+</p>
+
+    <div class="uk-child-width-1-2@s" uk-grid>
+        <div>
+
+        <video src="{% static 'App/video.mp4'%}" loop muted playsinline uk-video="autoplay: inview" style="border-radius:30px"></video>
+
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-padding">
+                <h3>What Do You Learn</h3>
+            <p>Learn best practices for using TensorFlow, a popular open-source machine learning framework
+                Build a basic neural network in TensorFlow
+                Train a neural network for a computer vision application
+                Understand how to use convolutions to improve your neural network</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="uk-card uk-card-default uk-padding" style="margin-top:4vh">
+        <h3>Course Specialities</h3>
+<li>- The meaning behind common AI terminology, including neural networks, machine learning, deep learning, and data science</li>
+        <li>- What AI realistically can--and cannot--do</li>
+        <li>- How to spot opportunities to apply AI to problems in your own organization</li>
+        <li>- What it feels like to build machine learning and data science projects</li>
+        <li>- How to work with an AI team and build an AI strategy in your company</li>
+        <li>- How to navigate ethical and societal discussions surrounding AI</li>
+
+    </div>
+
+
+
+</div>
+<div class="uk-container">
+<h3 style="text-align:center;margin-top:4vh">Course Features</h3>
+<div class="uk-grid-match uk-child-width-expand@s uk-text-center" uk-grid>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body uk-padding uk-light" style="background-color: #1fd1f9;background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);border-radius:30px"><span uk-icon="icon: credit-card;ratio: 3.5 "></span><br>Shareable Certificate Earn a Certificate upon completion</div>
+     </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body uk-padding uk-light" style="background-color: #f876de;background-image: linear-gradient(315deg, #f876de 0%, #b9d1eb 74%);border-radius:30px"><span uk-icon="icon: calendar;ratio: 3.5 "></span><br>Flexible Schedule Set and maintain flexible deadlines.</div>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body uk-padding uk-light" style="background-color: #f907fc;background-image: linear-gradient(315deg, #f907fc 0%, #05d6d9 74%);border-radius:30px"><span uk-icon="icon:  happy;ratio: 3.5 "></span><br>Beginner Level No prior experience required.</div>
+    </div>
+</div>
+
+
+<div class="uk-grid-match uk-child-width-expand@s uk-text-center" uk-grid>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body uk-padding uk-light" style="background-color: #726cf8;background-image: linear-gradient(315deg, #726cf8 0%, #e975a8 74%);border-radius:30px"><span uk-icon="icon: world;ratio: 3.5 "></span><br>100% online courses Start instantly and learn at your own schedule.</div>
+     </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body uk-padding uk-light" style="background-color: #96c8fb;background-image: linear-gradient(315deg, #96c8fb 0%, #ddbdfc 74%);border-radius:30px"><span uk-icon="icon:clock ;ratio: 3.5 "></span><br>Approx. 5 months to complete Suggested 4 hours/week</div>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body uk-padding uk-light" style="border-radius:30px;background-color: #03e5b7;background-image: linear-gradient(315deg, #03e5b7 0%, #037ade 74%);"><span uk-icon="icon:commenting;ratio: 3.5 "></span><br>Learn in your native languages(English/Hindi/Marathi)</div>
+    </div>
+</div>
+</div>
+<hr>
+<div class="uk-container">
+<div class="uk-child-width-1-2@s" style="margin-top:5vh" uk-grid>
+    <div style="margin-top:5vh">
+        <h2>Start Today with a 7-Day Free Trial</h2>
+        <div ><span style="color:red" uk-icon="icon: check; ratio: 1.5"></span>&nbsp;<span style="font-size:2.5vh;padding-left:10px">Shareable Specialization and Course Certificates</span></div>
+        <div ><span style="color:red" uk-icon="icon: check; ratio: 1.5"></span>&nbsp;<span style="font-size:2.5vh;padding-left:10px">Self-Paced Learning Option</span></div>
+        <div ><span style="color:red" uk-icon="icon: check; ratio: 1.5"></span>&nbsp;<span style="font-size:2.5vh;padding-left:10px">Course Videos & Readings</span></div>
+        <div ><span style="color:red" uk-icon="icon: check; ratio: 1.5"></span>&nbsp;<span style="font-size:2.5vh;padding-left:10px">Practice Quizzes</span></div>
+        <div ><span style="color:red" uk-icon="icon: check; ratio: 1.5"></span>&nbsp;<span style="font-size:2.5vh;padding-left:10px">Graded Assignments with Peer Feedback</span></div>
+        <div ><span style="color:red" uk-icon="icon: check; ratio: 1.5"></span>&nbsp;<span style="font-size:2.5vh;padding-left:10px">Graded Quizzes with Feedback</span></div>
+        <div ><span style="color:red" uk-icon="icon: check; ratio: 1.5"></span>&nbsp;<span style="font-size:2.5vh;padding-left:10px">Graded Programming Assignments</span></div>
+
+        <form method="post">{% csrf_token %}
+            <input type="text" name="username" value="{{request.user}}" hidden>
+            <input type="email" name="email" value="{{request.user.email}}" hidden>
+            <input type="text" name="course" value="Android/IOS Development" hidden>
+            <input type="text" name="timestamp" value="{{time}}" hidden>
+
+            <button class="uk-button uk-button-default uk-light" type="submit" style="margin-top:10px;background-color: #2a2a72;background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);">Enroll For Free<br>Starts - {{time}}</button>
+        </form>
+
+    </div>
+  {% for x in AI %}
+    <div>
+        <img src="/media/{{x.certificate}}" class="uk-align-center" uk-img>
+    </div>
+    {% endfor %}
+</div>
+</div>
+<hr>
+
+
+
+{% endblock %}

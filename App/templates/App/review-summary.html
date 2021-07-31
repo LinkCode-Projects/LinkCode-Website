@@ -1,0 +1,32 @@
+{% extends 'App/base.html'%}
+{% block body %}
+<div class="uk-container">
+<h2 style="margin-top:30px">LinkCode <b>Admin Side Review Summary</b></h2>
+<hr>
+    <table class="uk-table uk-table-divider">
+
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for x in review %}
+
+            <tr>
+                <td><a href="/review_update/{{x.id}}" uk-tooltip="Click To Read">{{x.date}}</a></td>
+                <td><a href="/review_update/{{x.id}}" uk-tooltip="Click To Read">{{x.username}}</a></td>
+                <td><a href="/review_update/{{x.id}}" uk-tooltip="Click To Read">{{x.status}}</a></td>
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+
+        </table>
+</div>
+
+{% endblock %}

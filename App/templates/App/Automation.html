@@ -1,0 +1,167 @@
+{% extends 'App/base.html' %}
+{% load static %}
+{% block body %}
+<style>
+#section_1 {
+  word-wrap: break-word;
+}
+
+.moretext_1 {
+  display: none;
+}
+
+</style>
+
+{% if messages %}
+{% for x in messages %}
+<div class="uk-container">
+    <div class="uk-alert-{{x.tags}}" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p style="text-align:center">{{x}}</p>
+</div>
+</div>
+{% endfor %}
+{% endif %}
+
+
+<h2 style="text-align:center">Learn Automation with LinkCode</h2>
+<div class="uk-container">
+<div class="uk-child-width-1-2@s" uk-grid>
+    <div>
+    <img src="{% static 'App/Arduino.jpeg'%}" style="width:60vh;margin-top:5vh" class="uk-align-center" uk-img>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default uk-light uk-padding" style="background-color: #7f53ac;
+                                background-image: linear-gradient(315deg, #7f53ac 0%, #647dee 74%);margin-top:5vh">
+
+            <h3 style="text-align:center">Learn Arduino Programming</h3>
+
+            <div>
+                <div id="section_1" >
+                  <div class="article">
+                      <p>
+                          The Arduino is an open-source computer hardware/software platform for building digital devices and interactive objects that can sense and control the physical world around them.
+                          In this class you will learn how the Arduino platform works in terms of the physical board and libraries and the IDE (integrated development environment).</p></div>
+                      <p class="moretext_1">
+                You will also learn about shields, which are smaller boards that plug into the main Arduino board to perform other functions such as sensing light, heat, GPS tracking,
+                or providing a user interface display. The course will also cover programming the Arduino using C code and accessing the pins on the board via the software
+                          to control external devices. Please note that this course does not include discussion forums.</p></div>
+            </h4>
+                 <a class="moreless-button_1">Read more</a>
+                  </div>
+             </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="uk-container" style="margin-top:20vh">
+<div class="uk-child-width-1-2@s" uk-grid>
+    <div>
+        <img src="{% static 'App/Rp.jpg'%}" style="width:60vh" class="uk-align-center" uk-img>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default uk-light uk-padding" style="background-color: #f907fc;
+background-image: linear-gradient(315deg, #f907fc 0%, #05d6d9 74%);">
+        <div class="section_2">
+            <div class="article">
+                <h3 style="text-align:center">Raspberry Pie (Python IOT platform)</h3>
+                <p>
+                    The Raspberry Pi is a small, affordable single-board computer that you will use to design and develop fun and practical IoT devices while learning programming and computer hardware.
+                    In addition, you will learn how to set up up the Raspberry Pi environment, get a Linux operating system running, and write and execute some basic Python code on the Raspberry Pi.
+                    You will also learn how to use Python-based IDE (integrated development environments) for the Raspberry Pi and how to trace and debug Python code on the device.
+                    Please note that this course does not include discussion forums.
+                </p>
+            </div>
+        </div>
+        </div>
+
+    </div>
+</div>
+</div>
+<hr>
+
+<div class="uk-container">
+<h3 style="text-align:center;margin-top:4vh">Course Features</h3>
+<div class="uk-grid-match uk-child-width-expand@s uk-text-center" uk-grid>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body uk-padding uk-light" style="background-color: #1fd1f9;background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);border-radius:30px"><span uk-icon="icon: credit-card;ratio: 3.5 "></span><br>Shareable Certificate Earn a Certificate upon completion</div>
+     </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body uk-padding uk-light" style="background-color: #f876de;background-image: linear-gradient(315deg, #f876de 0%, #b9d1eb 74%);border-radius:30px"><span uk-icon="icon: calendar;ratio: 3.5 "></span><br>Flexible Schedule Set and maintain flexible deadlines.</div>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body uk-padding uk-light" style="background-color: #f907fc;background-image: linear-gradient(315deg, #f907fc 0%, #05d6d9 74%);border-radius:30px"><span uk-icon="icon:  happy;ratio: 3.5 "></span><br>Beginner Level No prior experience required.</div>
+    </div>
+</div>
+
+
+<div class="uk-grid-match uk-child-width-expand@s uk-text-center" uk-grid>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body uk-padding uk-light" style="background-color: #726cf8;background-image: linear-gradient(315deg, #726cf8 0%, #e975a8 74%);border-radius:30px"><span uk-icon="icon: world;ratio: 3.5 "></span><br>100% online courses Start instantly and learn at your own schedule.</div>
+     </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body uk-padding uk-light" style="background-color: #96c8fb;background-image: linear-gradient(315deg, #96c8fb 0%, #ddbdfc 74%);border-radius:30px"><span uk-icon="icon:clock ;ratio: 3.5 "></span><br>Approx. 5 months to complete Suggested 4 hours/week</div>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body uk-padding uk-light" style="border-radius:30px;background-color: #03e5b7;background-image: linear-gradient(315deg, #03e5b7 0%, #037ade 74%);"><span uk-icon="icon:commenting;ratio: 3.5 "></span><br>Learn in your native languages(English/Hindi/Marathi)</div>
+    </div>
+</div>
+</div>
+<hr>
+<div class="uk-container">
+<div class="uk-child-width-1-2@s" style="margin-top:5vh" uk-grid>
+    <div style="margin-top:5vh">
+        <h2>Start Today with a 7-Day Free Trial</h2>
+        <div ><span style="color:red" uk-icon="icon: check; ratio: 1.5"></span>&nbsp;<span style="font-size:2.5vh;padding-left:10px">Shareable Specialization and Course Certificates</span></div>
+        <div ><span style="color:red" uk-icon="icon: check; ratio: 1.5"></span>&nbsp;<span style="font-size:2.5vh;padding-left:10px">Self-Paced Learning Option</span></div>
+        <div ><span style="color:red" uk-icon="icon: check; ratio: 1.5"></span>&nbsp;<span style="font-size:2.5vh;padding-left:10px">Course Videos & Readings</span></div>
+        <div ><span style="color:red" uk-icon="icon: check; ratio: 1.5"></span>&nbsp;<span style="font-size:2.5vh;padding-left:10px">Practice Quizzes</span></div>
+        <div ><span style="color:red" uk-icon="icon: check; ratio: 1.5"></span>&nbsp;<span style="font-size:2.5vh;padding-left:10px">Graded Assignments with Peer Feedback</span></div>
+        <div ><span style="color:red" uk-icon="icon: check; ratio: 1.5"></span>&nbsp;<span style="font-size:2.5vh;padding-left:10px">Graded Quizzes with Feedback</span></div>
+        <div ><span style="color:red" uk-icon="icon: check; ratio: 1.5"></span>&nbsp;<span style="font-size:2.5vh;padding-left:10px">Graded Programming Assignments</span></div>
+
+        <form method="post">{% csrf_token %}
+            <input type="text" name="username" value="{{request.user}}" hidden>
+            <input type="email" name="email" value="{{request.user.email}}" hidden>
+            <input type="text" name="course" value="Automation" hidden>
+            <input type="text" name="timestamp" value="{{time}}" hidden>
+
+            <button class="uk-button uk-button-default uk-light" type="submit" style="margin-top:10px;background-color: #2a2a72;background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);">Enroll For Free<br>Starts - {{time}}</button>
+        </form>
+
+    </div>
+  {% for x in Auto %}
+    <div>
+        <img src="/media/{{x.certificate}}" class="uk-align-center" uk-img>
+    </div>
+    {% endfor %}
+</div>
+</div>
+<hr>
+
+
+
+
+
+{% endblock %}
+
+{% block js %}
+<script>
+    //FOR Arduino
+// The function toggles more (hidden) text when the user clicks on "Read more". The IF ELSE statement ensures that the text 'read more' and 'read less' changes interchangeably when clicked on.
+$('.moreless-button_1').click(function() {
+  $('.moretext_1').slideToggle();
+  if ($('.moreless-button_1').text() == "Read more") {
+    $(this).text("Read less")
+  } else {
+    $(this).text("Read more")
+  }
+});
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'App/base.html'%}
+{% load static%}
+{% block title %}SignIn|LinkCode{% endblock %}
+{% block nav_style %}
+background-color: #f8f9d2;
+background-image: linear-gradient(315deg, #f8f9d2 0%, #e8dbfc 74%);
+{% endblock %}
+
+{% block nav_head %}
+font-size:5vh;
+                    background:linear-gradient(319deg, #91d370 0%, #bca0ff 37%, #f2cd54 100%);;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+{% endblock %}
+
+
+
+
+
+{% block body %}
+{% if messages %}
+{% for x in messages%}
+<div class="uk-container">
+<div class="uk-alert-{{x.tags}}" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p style="text-align:center">{{x}}</p>
+</div>
+</div>
+{% endfor %}
+
+{% endif %}
+
+<div class="uk-container" style="margin-top:10vh">
+    <div class="uk-child-width-expand@s" uk-grid>
+    <div class="uk-grid-item-match uk-visible@m">
+        <img src="{% static 'App/signin-img-linkcode.jpg'%}" uk-img>
+     </div>
+    <div>
+
+         <div class="uk-card uk-card-primary uk-card-large uk-card-body" style="border-radius:30px">
+            <h3 class="uk-card-title">SignUp</h3>
+            <form class="uk-grid-small" method="post" uk-grid>{% csrf_token %}
+                    <div class="uk-width-1-1">
+                        <input class="uk-input" type="text" name="username" placeholder="Enter UserName" required>
+                    </div>
+                    <div class="uk-width-1-2">
+                        <input class="uk-input" type="text" name="fname" placeholder="FirstName" required>
+                    </div>
+                    <div class="uk-width-1-2">
+                        <input class="uk-input" type="text" name="lname" placeholder="LastName" required>
+                    </div>
+
+                    <div class="uk-width-1-1">
+                        <input class="uk-input" type="email" name="mail" placeholder="Email" required>
+                    </div>
+                    <div class="uk-width-1-2">
+                        <input class="uk-input" type="password" name="pass1" placeholder="Set a Password" required>
+                    </div>
+                    <div class="uk-width-1-2">
+                        <input class="uk-input" type="password" name="pass2" placeholder="Confirm Password" required>
+                    </div>
+                    <div class="uk-width-1-2@s">
+                        <input class="uk-input" type="tel" name="phone" placeholder="Mobile Number" required>
+                    </div>
+                     <div class="uk-width-1-2@s">
+                         <button class="uk-button uk-button-secondary" type="submit" style="border-radius:30px">Create Account</button>
+                    </div>
+                    <div class="uk-width-1-2@s">
+                         <a href="/login">Already Created Then Login!</a>
+                    </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+</div>
+{% endblock %}

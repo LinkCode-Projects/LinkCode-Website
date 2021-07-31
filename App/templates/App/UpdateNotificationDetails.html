@@ -1,0 +1,51 @@
+{% extends 'App/base.html'%}
+{% load static %}
+{% block title %}Update Notifications Details | LinkCode Technologies Pune | JM Road{% endblock %}
+{% block body %}
+
+
+{% if messages %}
+{% for x in messages %}
+<div class="uk-container">
+    <div class="uk-alert-{{x.tags}}" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p style="text-align:center">{{x}}</p>
+</div>
+</div>
+{% endfor %}
+
+{% endif %}
+<div class="uk-container">
+<h2 style="margin-top:30px">LinkCode <b>Update Content</b></h2>
+    <hr>
+
+    <form class="uk-grid-small" uk-grid method="post">{% csrf_token %}
+        {% for x in un %}
+    <div class="uk-width-1-1">
+        <input class="uk-input" type="text" name="title" value="{{x.to_dict.title}}">
+    </div>
+    <div class="uk-width-1-1">
+        <select class="uk-select" name="to">
+                <option>All</option>
+                <option>Web Development</option>
+                <option>C-C++-DSALGO</option>
+                <option>AI</option>
+                <option>MachineLearning</option>
+                <option>Automation</option>
+                <option>Android</option>
+        </select>
+    </div>
+
+    <div class="uk-width-1-1">
+        <textarea class="uk-textarea" rows="5" name="msg">{{x.to_dict.message}}</textarea>
+    </div>
+
+    <div>
+        <button class="uk-button uk-button-secondary" type="submit" >Send</button>
+    </div>
+        {% endfor %}
+    </form>
+
+
+</div>
+{% endblock %}

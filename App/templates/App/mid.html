@@ -1,0 +1,33 @@
+{% extends 'App/base.html' %}
+
+{% block title %}Notifications Summary| LinkCode Technologies Pune | JM Road{% endblock %}
+{% block body %}
+<div class="uk-container">
+
+    <h3 style="margin-top:30px">LinkCode <b>Notifications Summary</b></h3>
+
+    <hr>
+    {% if noti|length > 0 %}
+
+    <table class="uk-table uk-table-divider">
+    <thead>
+        <tr>
+            <th style="text-align:center">Date</th>
+            <th style="text-align:center">Message</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for x in noti %}
+
+        <tr>
+            <td style="text-align:center"><a href="/NoticeDetails/{{x.to_dict.posted_on}}">{{x.to_dict.posted_on|truncatewords:3}}</a></td>
+            <td style="text-align:center"><a href="/NoticeDetails/{{x.to_dict.posted_on}}">{{x.to_dict.message|truncatewords:7}}</a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+    {% else %}
+    <h1 style="text-align:center;margin-top:30px">WooHoo No work to do!</h1>
+    {% endif %}
+</div>
+{% endblock %}

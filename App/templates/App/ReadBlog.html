@@ -1,0 +1,28 @@
+{% extends 'App/base.html'%}
+{% block title %}Read Blog| LinkCode Technologies Pune | JM Road{% endblock %}
+{% block body %}
+<div class="uk-container">
+    <h1 style="margin-top:30px">LinkCode <b>Blog</b></h1>
+    <hr>
+    {% for x in readblog %}
+    <article class="uk-comment uk-comment-primary">
+    <header class="uk-comment-header">
+        <h3>{{x.title}}</h3>
+        <h4>{{x.date}}</h4>
+    </header>
+    </article>
+    <div class="uk-grid uk-child-width-1-2@s" style="margin-top:50px">
+        <div>
+            <img class="uk-align-center" src="/media/{{x.image}}" uk-img>
+        </div>
+    </div>
+    <article style="margin-top:4vh">
+        {{x.blog|safe}}
+    </article>
+
+    {% endfor %}
+</div>
+<hr>
+
+
+{% endblock %}

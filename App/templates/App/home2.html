@@ -1,0 +1,592 @@
+{% extends 'App/base.html' %}
+{% load static %}
+{% block title%}Home| LinkCode Technologies| Linking To The Corporate World | Pune |JM ROAD |Learn All CS ,IT technologies here|Learn C,C++,Python,MachineLearning ETC{% endblock %}
+
+{% block body %}
+
+{% if messages %}
+{% for x in messages %}
+<div class="uk-alert-{{x.tags}}" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p style="text-align:center">{{x}}</p>
+</div>
+{% endfor %}
+{% endif %}
+
+<style>
+    body{
+    background:#e0s5eb;
+    }
+    .header{
+    position:relative;
+    }
+    .inner-header{
+    position:absolute;
+    margin-top:10vh;
+    top: 50%;
+    left: 40%;
+    }
+    .header-btn-start-learning{
+    border: 1px solid #fff;
+    border-radius: 100px;
+    margin-top:40vh;
+    padding: 12px 35px;
+    outline: none;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: center;
+    }
+    .header-btn-start-learning:hover{
+    background-color: #9D00FF;
+    color:#fff;
+    underline:none;
+    }
+    a,u{
+    text-decoration:none !important;;
+    }
+
+</style>
+
+<!For Desktop View>
+<div class="uk-visible@m">
+<div class="header">
+   <img data-src="{% static 'App/linkcode-header-img-c-2-d.jpg'%}" style="width:100%;height:80vh"  alt="" uk-img>
+
+    <!--
+   <div class="inner-header uk-align-center">
+       <div class="uk-child-width-1-2@s" uk-grid>
+           <div>
+               <a class="header-btn-start-learning" href="#">Start Learning</a>
+           </div>
+           <div>
+               <a class="header-btn-start-learning" href="#">About.LinkCode</a>
+           </div>
+       </div>
+   </div>
+   -->
+</div>
+</div>
+<!For Desktop View Ends>
+<!For Mobile View>
+<div class="mobile-header uk-hidden@m ">
+    <!--Header Img for Mobile---->
+    <img data-src="{% static 'App/LinkCode-Mountain.jpeg'%}" width="1800" height="1200" alt="" uk-img>
+    <!--Header Img for Mobile---->
+</div>
+<!For Mobile View Ends>
+
+<style>
+    .mid{
+    background-color: #eec0c6;
+background-image: linear-gradient(315deg, #eec0c6 0%, #7ee8fa 74%);
+
+    }
+</style>
+
+
+<!_______Mid_Page________>
+
+<style>
+    .neumorphic-text{
+    text-align:center;
+    font-family:{% static 'App/MajorMonoDisplay-Regular.ttf' %} san-serif;
+    font-size:5vw;
+    color:#e0e5eb;
+    text-shadow:
+    -8px -8px 12px rgba(255,255,255,0.4),8px 8px 12px rgba(0,0,0,0.08);
+    caret-color:#262626;
+
+    }
+</style>
+
+<h1 class="neumorphic-text">Dive Into The World Of Coding</h1>
+
+<!____Web_Technologies_____>
+<!----For mobile------>
+<div class="uk-container uk-hidden@m">
+ <div class="uk-card uk-card-default">
+            <div class="uk-card-media-top">
+                <img src="{% static 'App/webdev-mobile-linkcode.jpg'%}" alt="">
+            </div>
+            <div class="uk-card-body">
+                <h3 class="uk-card-title">Rule On Web</h3>
+                <p>Create Responsive,Dynamic Websites Powered By Scalable Frameworks And Real Time Databases</p>
+                <a class="uk-button uk-button-secondary" style="border-radius:30px" href="Course/Web-Development">Enroll Now</a>
+            </div>
+ </div>
+</div>
+
+
+
+
+<!---For Desktop ---->
+<div class="uk-container uk-visible@l">
+    <h2 style="text-align:center;font-size:2em;">LEARN MODERN WEB DEVELOPMENT TOOLS</h2>
+    <hr class="uk-divider-icon">
+    <a href="Course/Web-Development"><button class="uk-button uk-button-secondary uk-align-center">Enroll Now For Web</button></a>
+<div class="uk-child-width-1-2@xs uk-child-width-1-3@m uk-child-width-1-4@l uk-text-center" uk-grid="parallax: 150">
+    {% for x in web%}
+    <div>
+        <div class="uk-card uk-card-default uk-card-body " uk-tooltip="{{x.tech_name}}"><img src="/media/{{x.tech_img}}"></div>
+    </div>
+    {% endfor %}
+    </div>
+</div>
+<!--Web_Technologies-->
+<hr>
+<!---Database---->
+<div class="uk-container" style="margin-top:10vh">
+
+    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="clsActivated: uk-transition-active" uk-slider>
+
+    <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-4@m uk-grid">
+        {% for x in database %}
+        <li>
+            <div class="uk-card uk-card uk-card-hover uk-card-body"  uk-tooltip="{{x.tech_name}}" style="width:30vh;border-radius:50px;background:#f1f0f5">
+                <img src="/media/{{x.tech_img}}" style="width:20vh;" class="uk-align-center" alt="">
+        </div>
+        </li>
+
+        {% endfor  %}
+    </ul>
+
+    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+</div>
+
+
+</div>
+<hr>
+
+
+
+
+
+<!____Database_______>
+
+<!___Family of C_______>
+<div class="uk-child-width-1-2@s" style="margin-top:10vh" uk-grid>
+    <div>
+         <img src="{% static 'App/family-c-1.png' %}" class="uk-align-center" style="width:60vh" alt="">
+    </div>
+
+    <div>
+        <div class="uk-card  uk-card-hover uk-card-body uk-light uk-align-center uk-padding" style="border-radius: 40px; width:50vh;
+background: #7fa3dc;
+box-shadow:  5px 5px 10px #7494c8,
+             -5px -5px 10px #8ab2f0;">
+            <div style="padding-top:20px">
+        <h3 style="text-align:center;font-size:3vh;color:#fff">Learn DataStructures And Algorithms Using C or C++</h3>
+        <li style="text-align:center;font-size:2.5vh;color:#fff">1.Learn OOP Concepts in Depth</li>
+        <li style="text-align:center;font-size:2.5vh;color:#fff">2.Learn Memory Management Efficiently</li>
+        <li style="text-align:center;font-size:2.5vh;color:#fff">3.Competitive Programming</li>
+        <li style="text-align:center;font-size:2.5vh;color:#fff">4.Product Based Companies Interview Preparation</li>
+        <li style="text-align:center;font-size:2.5vh;color:#fff">5.Real Time Software Development</li>
+        <li style="text-align:center;font-size:2.5vh;color:#fff">6.Develop Problem Solving Skills</li>
+                <a href="Course/C_C++_Data-Structures" style="margin-top:5vh"><button class="uk-button uk-button-secondary uk-align-center" style="margin-top:5vh">Enroll Now</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+
+
+<!______________________>
+
+<!-------Python Programming------------>
+
+<div class="uk-container">
+<div class="uk-child-width-1-2@s" style="margin-top:10vh" uk-grid>
+    {% for x in python %}
+    <div>
+         <img src="/media/{{x.tech_img}}" class="uk-align-center" style="width:60vh" alt="">
+    </div>
+    {% endfor %}
+
+    <div>
+        <div class="uk-card uk-card-hover uk-card-body uk-light uk-align-center" style="border-radius:30px;background:#FFC10D">
+            <h3 class="uk-card-title" style="text-align:center">Learn Python At LinkCode</h3>
+            <p style="text-align:center">Fundamentals of programming in Python 3</p>
+            <p style="text-align:center">Learn Internet APIs for data extractions</p>
+            <p style="text-align:center">Have Fun with Open CV</p>
+            <p style="text-align:center">Django Basics</p>
+            <p style="text-align:center">Learn Object Oriented Programming</p>
+            <p style="text-align:center">Develop Games using PyGames</p>
+             <a href="Course/Python" class="uk-button uk-button-secondary uk-align-center" style="border-radius:30px">Enroll Now</a>
+        </div>
+    </div>
+</div>
+</div>
+<hr>
+
+
+<!-------Python Programming------------>
+
+
+
+
+<!-------Java Programming------------>
+
+<div class="uk-container">
+    {% for x in java%}
+    <img src="/media/{{x.header_img}}" class="uk-align-center">
+    {% endfor %}
+    <div class="uk-card uk-card-hover uk-card-body uk-light uk-align-center" style="border-radius:30px;background:#FF0023">
+            <h3 class="uk-card-title" style="text-align:center">Have A Cup Of Tea ;)</h3>
+            <p style="text-align:center">Full Stack Java Development</p>
+             <a href="Course/Java" class="uk-button uk-button-secondary uk-align-center" style="border-radius:30px">Enroll Now</a>
+        </div>
+
+</div>
+
+<!-------Java Programming------------>
+
+
+
+
+
+<hr>
+<div class="uk-container">
+<h3 style="text-align:center">Learn Data Visualization Techniques and Implementation</h3>
+    <a href="Course/Data_Science"><button class="uk-button uk-button-secondary uk-align-center" style="border-radius:30px">Enroll Now For Big Data</button></a>
+
+
+<div class="uk-child-width-1-2@s" uk-grid>
+    <div>
+        <canvas id="myChart_1" width="200"></canvas>
+    </div>
+    <div>
+        <canvas id="myChart_2" width="200"></canvas>
+    </div>
+</div>
+    <h2 style="text-align:center">Learn To Play With Graphs</h2>
+    <canvas id="myChart_3"></canvas>
+</div>
+
+<!______Learn Ai__________>
+<div class="uk-container">
+<div class="uk-child-width-1-2@s" style="margin-top:15vh" uk-grid>
+    <div>
+        <img src="{% static 'App/ail.jpeg' %}" class="uk-align-center"  uk-img>
+    </div>
+    <div>
+        <div class="uk-card uk-card-secondary uk-card-hover uk-card-body uk-light uk-align-center" style="border-radius:30px">
+            <h3 class="uk-card-title" style="text-align:center">Want to Learn AI</h3>
+            <p style="text-align:center">TensorFlow</p>
+            <p style="text-align:center">Neural Networks</p>
+            <p style="text-align:center">AI projects</p>
+        </div>
+        <div class="uk-card uk-card-secondary uk-card-hover uk-card-body uk-light uk-align-center" style="border-radius:30px">
+            <a href="AI/"><button class="uk-button uk-button-secondary uk-align-center" style="border-radius:30px">Enroll Now</button></a>
+
+        </div>
+    </div>
+</div>
+</div>
+<hr>
+
+
+
+
+<div class="uk-container">
+<div class="uk-child-width-1-2@s" style="margin-top:3vh" uk-grid>
+
+    <div>
+        <div class="uk-card uk-card-primary uk-card-hover uk-card-body uk-light uk-align-center" style="border-radius:30px">
+            <h3 class="uk-card-title" style="text-align:center">Android Development</h3>
+            <p style="text-align:center">Complete Android Knowledge</p>
+            <p style="text-align:center">Develop Industry Based Apps</p>
+            <p style="text-align:center">Kotlin/Java/React Native and Flutter</p>
+            <p style="text-align:center">Learn XML and more Frameworks</p>
+        </div>
+        <div class="uk-card uk-card-primary uk-card-hover uk-card-body uk-light uk-align-center" style="border-radius:30px">
+            <a href="AppDev/"><button class="uk-button uk-button-secondary uk-align-center" style="border-radius:30px">Enroll Now</button></a>
+
+        </div>
+    </div>
+
+    <div>
+        <img src="{% static 'App/Clearly-White-Pixel-4-Front_Back-1024x768_bgFjmFy.jpg' %}" class="uk-align-center" uk-img>
+    </div>
+</div>
+</div>
+<hr>
+
+
+
+<!______Learn IOS/Android Development__________>
+
+
+
+<!---- Machine Learning--------->
+<div class="uk-container" >
+<div class="uk-container" style="background:#F90B52;border-radius:30px">
+    <h2 style="text-align:center;margin-top:30px;color:white">LinkCodes Machine Learning Program</h2>
+    {% for x in ml%}
+    <a href="Course/Machine-Learning">
+    <img src="/media/{{x.header_img}}" class="uk-align-center">
+    </a>
+    {% endfor %}
+</div>
+</div>
+<hr>
+
+<!---- Machine Learning--------->
+
+
+<!_________Automations__________>
+<div class="uk-container">
+    <h3 style="text-align:center;margin-top:5vh">LinkCode's Automation Program</h3>
+<div class="uk-child-width-1-2@s" style="margin-top:3vh" uk-grid>
+    <div>
+        <video src="{% static 'App/Automatic Chocolate Machine.mp4'%}" loop muted playsinline uk-video="autoplay: inview" style="border-radius:30px"></video>
+    </div>
+    <div>
+        <video src="{% static 'App/line_tracking_car.mp4'%}" loop muted playsinline uk-video="autoplay: inview" style="border-radius:30px"></video>
+    </div>
+</div>
+    <a href="/Automation" class="uk-button uk-button-secondary uk-align-center" style="border-radius:30px">Enroll Now For Automation</a>
+    
+</div>
+<hr>
+<!_________Automations__________>
+
+<!________-App Promotion_________>
+<div class="uk-container">
+<div class="uk-child-width-1-2@s uk-grid-small uk-grid-match" uk-grid>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body">
+            <h3 class="uk-card-title" style="text-align:center">Download Our Android App</h3>
+            <a href="https://play.google.com/store/apps/details?id=co.shield.wcoeg&hl=en&gl=US"><img class="uk-align-center" style="width:10vh" src="{% static 'App/icons8-android-os-480.png' %}" uk-img></a>
+            <div class="counter">
+                <span><div class="counter-value" data-count="50" style="text-align:center;font-size:4vh"><h1>0</h1></div></span><span style="text-align:center"><h1>+ Downloads</h1></span>
+            </div>
+
+        </div>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body">
+            <h3 class="uk-card-title"style="text-align:center">Download Our IOS App</h3>
+
+
+
+
+
+            <a href="https://appagg.com/android/education/linkcode-technologies-34764192.html?hl=en"><img class="uk-align-center" style="width:10vh" src="{% static 'App/icons8-ios-logo-256.png' %}" uk-img></a>
+            <div class="counter">
+                <span><div class="counter-value" data-count="20" style="text-align:center;font-size:4vh"><h1>0</h1></div></span><span style="text-align:center"><h1>+ Downloads</h1></span>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!________-App Promotion_________>
+
+
+
+
+
+
+
+<!_______Find Us_________>
+<div class="uk-container" style="margin-top:5vh">
+
+            <h2 style="text-align:center">Find Us</h2>
+            <h3 style="text-align:center">LinkCode Technologies</h3>
+    <div class="uk-child-width-1-2@s" style="margin-top:3vh" uk-grid>
+        <div>
+            <div style="width: 100%"><iframe style="border-radius:30px" width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=300&amp;hl=en&amp;q=+(linkcode.in)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://www.mapsdirections.info/en/measure-map-radius/">Map radius measure</a></div>
+            <div class="uk-card uk-card-hover uk-card-body" style="border-radius: 46px;background: #ffffff;box-shadow:  30px 30px 60px #ededed,-30px -30px 60px #ffffff;">
+                <h5>Address:Barve Memorial Complex, Office No 5,6, First floor, Jangali Maharaj Rd, opposite Panchali Hotel, Shivajinagar, Pune, Maharashtra 411005</h5>
+                <span uk-icon="icon: receiver"></span><span>+91 96044 30489</span>
+
+            </div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m" style="border-radius: 40px; width:50vh;
+background: #7fa3dc;
+box-shadow:  5px 5px 10px #7494c8,
+             -5px -5px 10px #8ab2f0;>
+                <h3 class="uk-card-title" style="text-align:center">Contact Us</h3>
+                <form method="post">{% csrf_token %}
+                    <input class="uk-input uk-width-1-1 uk-align-center" type="text" name="full_name" placeholder="Enter Full Name" required>
+                    <input class="uk-input uk-width-1-1 uk-align-center" type="email" name="mail" placeholder="Enter Valid Email" required>
+                    <input class="uk-input uk-width-1-1 uk-align-center" type="tel" name="phone" placeholder="Enter Phone No" required>
+                    <textarea class="uk-textarea" rows="5" placeholder="Message" name="desc" required></textarea>
+                    <button class="uk-button uk-button-secondary uk-align-center" type="submit" style="border-radius:30px">Send</button>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+<!_______Contact Us______>
+
+
+
+
+
+
+
+
+
+<!_______Mid_Page________>
+
+{% endblock %}
+
+{% block js %}
+<script>
+var ctx_1 = document.getElementById('myChart_1').getContext('2d');
+var myChart = new Chart(ctx_1, {
+    type: 'doughnut',
+    data: {
+        labels: ['Red','Yellow','Blue'],
+        datasets: [{
+            data: [10, 20, 30],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+//Script for Graph 2
+
+
+var ctx_2 = document.getElementById('myChart_2').getContext('2d');
+var myChart = new Chart(ctx_2, {
+    type: 'bar',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+
+//Code for Graph 3
+var ctx_3 = document.getElementById('myChart_3').getContext('2d');
+var chart = new Chart(ctx_3, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+            label: 'My First dataset',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [0, 10, 5, 2, 20, 30, 45]
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+
+
+
+//countdown
+
+val = document.getElementsByClassName('ctd');
+console.log(val);
+var i;
+for (i = 0; i < 100; i++) {
+  console.log(i);
+  val.innerHTML=i;
+}
+
+
+
+
+//code for scroller
+var a = 0;
+$(window).scroll(function() {
+
+  var oTop = $('.counter').offset().top - window.innerHeight;
+  if (a == 0 && $(window).scrollTop() > oTop) {
+    $('.counter-value').each(function() {
+      var $this = $(this),
+        countTo = $this.attr('data-count');
+      $({
+        countNum: $this.text()
+      }).animate({
+          countNum: countTo
+        },
+
+        {
+
+          duration: 2000,
+          easing: 'swing',
+          step: function() {
+            $this.text(Math.floor(this.countNum));
+          },
+          complete: function() {
+            $this.text(this.countNum);
+            //alert('finished');
+          }
+
+        });
+    });
+    a = 1;
+  }
+
+});
+
+</script>
+
+
+
+{% endblock %}

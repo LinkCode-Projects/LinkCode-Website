@@ -1,0 +1,56 @@
+{% extends 'App/base.html'%}
+
+{% block title %}Notice | LinkCode Technologies Pune | JM Road{% endblock %}
+{% load static %}
+{% block body%}
+<div class="uk-container">
+<h2 style="margin-top:30px">LinkCode <b>Notification</b></h2>
+    <hr>
+
+    <ul class="uk-grid-match uk-grid-small uk-child-width-1-2 uk-child-width-1-4@s" uk-sortable="handle: .uk-card" uk-grid>
+        {% for x in classes_enrolled %}
+            <li>
+                <div class="uk-card uk-card-default uk-card-body uk-text-center uk-padding" style="background-color: #fad0c4;background-image: linear-gradient(315deg, #fad0c4 0%, #f1a7f1 74%); text-align:center ;"><a href="/mid/{{x.course}}" style="color:black">{{x.course}}</a> </div>
+            </li>
+        {% endfor %}
+            <li>
+                <div class="uk-card uk-card-default uk-card-body uk-text-center uk-padding" style="background-color: #2a2a72;
+  background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%); text-align:center ;"><a href="/mid/All" style="color:#fff">From-LinkCode</a> </div>
+            </li>
+
+    </ul>
+</div>
+<!--{% if length_of_notice > 0 %}
+<span><img src="{% static 'App/news2.png'%}" class="uk-align-center" alt="" uk-img></span>
+<span><h1 style="text-align:center">Notifications</h1></span>
+<hr>
+<div class="uk-container">
+
+<table class="uk-table uk-table-justify uk-table-divider">
+    <thead>
+        <tr>
+            <th class="uk-width-small" style="text-align:center">Date</th>
+            <th style="text-align:center">Notification</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for x in notice %}
+
+        <tr>
+
+            <td style="text-align:center"><a href="/NoticeDetails/{{x.to_dict.posted_on}}">{{x.to_dict.posted_on|truncatewords:3}}</a></td>
+            <td style="text-align:center"><a href="/NoticeDetails/{{x.to_dict.posted_on}}">{{x.to_dict.title}}</a></td>
+        </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+    {% else %}
+    <div class="uk-container">
+    <h3 style="text-align:center;margin-top:10vh">There are no notifications for you!</h3>
+        <div class="uk-hidden@m" style="padding-top:133.400%;position:relative;"><iframe src="https://gifer.com/embed/GOcT" width="100%" height="100%" style='position:absolute;top:0;left:0;' frameBorder="0" allowFullScreen></iframe></div></p>
+    </div>
+    {% endif %}
+</div>-->
+
+{% endblock %}

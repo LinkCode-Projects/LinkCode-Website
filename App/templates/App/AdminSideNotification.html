@@ -1,0 +1,61 @@
+{% extends 'App/base.html' %}
+
+{% block title%}Admin Side Notification System |LinkCode{% endblock %}
+
+{% block body %}
+{% if messages %}
+{% for x in messages %}
+<div class="uk-container">
+    <div class="uk-alert-{{x.tags}}" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p style="text-align:center">{{x}}</p>
+</div>
+</div>
+{% endfor %}
+
+{% endif %}
+
+<div class="uk-container">
+    <h1 style="text-align:center;margin-top:30px">Admin Side Notifications</h1>
+    <form class="uk-grid-small" uk-grid method="post">{% csrf_token %}
+    <div class="uk-width-1-1">
+        <input class="uk-input" type="text" name="title" placeholder="Title">
+    </div>
+    <div class="uk-width-1-1">
+        <select class="uk-select" name="to">
+                <option>All</option>
+                <option>Web-Development</option>
+                <option>C_C++_Data-Structures</option>
+                <option>Data_Science</option>
+                <option>AI</option>
+                <option>Python</option>
+                <option>Java</option>
+                <option>Machine-Learning</option>
+                <option>Automation</option>
+                <option>Android</option>
+        </select>
+    </div>
+
+    <div class="uk-width-1-1">
+
+    <div>
+        <textarea class="uk-textarea" rows="5" name="msg" placeholder="Notifications/Message"></textarea>
+    </div>
+    <div>
+         <label><input class="uk-checkbox" name="send_email" type="checkbox"> Do you want to send emails to students</label>
+    </div>
+    <div>
+        <button class="uk-button uk-button-secondary" type="submit" >Send</button>
+    </div>
+    </div>
+
+
+
+</form>
+
+    <hr>
+    <a href="/UpdateNotifications" class="uk-button uk-button-primary uk-hidden@m" type="submit" >Update Cloud Notifications</a>
+</div>
+
+
+{% endblock %}

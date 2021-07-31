@@ -1,0 +1,30 @@
+{% extends 'App/base.html' %}
+{% block body %}
+<div class="uk-container">
+<h2 style="margin-top:30px">LinkCode <b>Reviews</b></h2>
+<hr>
+
+    <div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
+        {% for x in review %}
+            <div>
+                <div class="uk-card uk-card-primary">
+                    <div class="uk-card-media-top">
+                        <img src="images/light.jpg" alt="">
+                    </div>
+                    <div class="uk-card-body">
+                        <h3 class="uk-card-title">{{x.username}}</h3>
+                        <p>{{x.msg}}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}

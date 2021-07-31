@@ -1,0 +1,33 @@
+{% extends 'App/base.html' %}
+{% load static %}
+{% block title %}Notifications Details| LinkCode Technologies Pune | JM Road{% endblock %}
+{% block body %}
+<div class="uk-container">
+
+
+    <h2 style="margin-top:30px">LinkCode <b>Detailed Notification</b></h2>
+    <hr>
+
+    <div class="uk-card uk-card-default uk-width-1-2@m uk-align-center" style="margin-top:10vh">
+    <div class="uk-card-header">
+        <div class="uk-grid-small uk-flex-middle" uk-grid>
+            <div class="uk-width-auto">
+                <img class="uk-border-rounded" width="60" height="60" src="{% static 'App/user.png' %}">
+            </div>
+            {% for x in get_notice%}
+            <div class="uk-width-expand">
+                <h3 class="uk-card-title uk-margin-remove-bottom"> {{x.to_dict.title}}</h3>
+                <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">{{x.to_dict.posted_on}}</time></p>
+            </div>
+        </div>
+    </div>
+    <div class="uk-card-body">
+        <p>{{x.to_dict.message}}</p>
+    </div>
+    <div class="uk-card-footer">
+        <a href="#" class="uk-button uk-button-text">Status : {{x.to_dict.to}} - by Admin</a>
+    </div>
+         {% endfor %}
+</div>
+</div>
+{% endblock %}

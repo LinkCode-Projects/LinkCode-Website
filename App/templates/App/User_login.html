@@ -1,0 +1,51 @@
+{% extends 'App/base.html'%}
+{% load static%}
+{% block title %}LogIn|LinkCode{% endblock %}
+{% block nav_style %}
+background-color: #f9c5d1;
+background-image: linear-gradient(315deg, #f9c5d1 0%, #9795ef 74%);
+{% endblock %}
+
+{% block nav_head %}
+font-size:5vh;
+                    background:linear-gradient(319deg, #faa499 0%, #f7dd85 37%, #ffc55c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+{% endblock %}
+
+
+{% block body %}
+
+{% if messages %}
+{% for x in messages%}
+<div class="container">
+<div class="uk-alert-{{x.tags}}" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p style="text-align:center">{{x}}</p>
+</div>
+</div>
+{% endfor %}
+{{ break }}
+
+{% endif %}
+
+<div class="uk-container" style="margin-top:10vh">
+    <img class="uk-border-rounded uk-align-center" src="{% static 'App/user.png' %}" width="200" height="200" alt="Border circle">
+    <h1 style="text-align:center">User Login</h1>
+<form class="uk-grid-small uk-align-center" uk-grid style="margin: 0 auto;width:300px;" method="post">{% csrf_token %}
+    <div class="uk-width-1-1">
+        <input class="uk-input uk-form-width-large" type="text" name="username" placeholder="Username">
+    </div>
+    <div class="uk-width-1-1">
+        <input class="uk-input uk-form-width-large" type="password" name="password" placeholder="Password">
+    </div>
+    <div>
+    <button class="uk-button uk-button-secondary" type="submit">Login</button>
+    </div>
+</form>
+    <a href="/registration" class="uk-align-center" style="text-align:center">Don't have an account? Create one!</a>
+    </div>
+
+
+{% endblock %}

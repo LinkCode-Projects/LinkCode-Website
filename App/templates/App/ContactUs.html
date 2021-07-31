@@ -1,0 +1,68 @@
+{% extends 'App/base.html'%}
+{% load static %}
+{% block title %}Contact Us{% endblock %}
+
+{% block body %}
+{% if messages %}
+{% for x in messages %}
+<div class="uk-alert-{{x.tags}}" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p style="text-align:center">{{x}}</p>
+</div>
+{% endfor %}
+{% endif %}
+
+
+<div class="uk-container">
+    <h1 style="margin-top:30px">LinkCode <b>ContactUs</b></h1>
+    <hr>
+
+    <div class="uk-container" style="margin-top:5vh">
+
+        <h2 style="text-align:center">Find Us</h2>
+        <h3 style="text-align:center">LinkCode Technologies</h3>
+        <div class="uk-child-width-1-2@s" style="margin-top:3vh" uk-grid>
+            <div>
+                <div style="width: 100%">
+                    <iframe style="border-radius:30px" width="100%" height="300" frameborder="0" scrolling="no"
+                            marginheight="0" marginwidth="0"
+                            src="https://maps.google.com/maps?width=100%25&amp;height=300&amp;hl=en&amp;q=+(linkcode.in)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                    <a href="https://www.mapsdirections.info/en/measure-map-radius/">Map radius measure</a></div>
+                <div class="uk-card uk-card-hover uk-card-body"
+                     style="border-radius: 46px;background: #ffffff;box-shadow:  30px 30px 60px #ededed,-30px -30px 60px #ffffff;">
+                    <h5>Address:Barve Memorial Complex, Office No 5,6, First floor, Jangali Maharaj Rd, opposite
+                        Panchali Hotel, Shivajinagar, Pune, Maharashtra 411005</h5>
+                    <span uk-icon="icon: receiver"></span><span>+91 96044 30489</span>
+
+                </div>
+            </div>
+            <div>
+                <div class="uk-card uk-card-hover uk-card-body" style="border-radius: 46px;
+background: #ffffff;
+box-shadow:  30px 30px 60px #ededed,
+             -30px -30px 60px #ffffff;">
+                    <h3 class="uk-card-title" style="text-align:center">Contact Us</h3>
+                    <form method="post">{% csrf_token %}
+                        <input class="uk-input uk-width-1-1 uk-align-center" type="text" name="full_name"
+                               placeholder="Enter Full Name" required>
+                        <input class="uk-input uk-width-1-1 uk-align-center" type="email" name="mail"
+                               placeholder="Enter Valid Email" required>
+                        <input class="uk-input uk-width-1-1 uk-align-center" type="tel" name="phone"
+                               placeholder="Enter Phone No" required>
+                        <textarea class="uk-textarea" rows="5" placeholder="Message" name="desc" required></textarea>
+                        <button class="uk-button uk-button-secondary uk-align-center" type="submit"
+                                style="border-radius:30px">Send
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <!_______Contact Us______>
+
+
+    {% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'App/base.html' %}
+{% load static %}
+{% block title%}Classes You Enrolled | Your Future | LinkCode Technologies Pune{% endblock %}
+{% block body %}
+<div class="uk-container">
+    <h2 style="text-align:center;margin-top:5vh">Courses You Enrolled</h2>
+    <div class="uk-grid-column-small uk-grid-row-large uk-child-width-1-3@s uk-text-center" uk-grid>
+        {% if classes_info %}
+        {% for x in classes_info %}
+        <div>
+            <div class="uk-card uk-card-default uk-card-body uk-light"
+                 style="background-color: #f8ceec;background-image: linear-gradient(315deg, #f8ceec 0%, #a88beb 74%);border-radius:30px">
+                <h3>{{x.course}}</h3>
+                <h3>{{x.time_stamp}}</h3>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <style>
+    </style>
+</div>
+<h1 class="uk-dark" style="text-align:center;margin-top:10vh">No Classes Enrolled :(</h1>
+<a class="uk-button uk-button-default uk-align-center uk-light" href="\" style="background-color: #f8ceec;
+background-image: linear-gradient(315deg, #f8ceec 0%, #a88beb 74%);
+">Enroll Now For Free</a>
+
+<hr>
+{% endif %}
+
+{% endblock %}

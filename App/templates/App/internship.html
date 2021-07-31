@@ -1,0 +1,311 @@
+{% extends 'App/base.html' %}
+{% block body %}{% load static %}
+
+{% if messages %}
+{% for x in messages %}
+<div class="uk-container">
+<div class="uk-alert-{{x.tags}}" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p style="text-align:center">{{x}}</p>
+</div>
+</div>
+{% endfor %}
+{% endif %}
+
+<div class="uk-section uk-section-secondary uk-light">
+    <div class="uk-container">
+        <h1 style="text-align:center">LinkCode For <b style="color:blue">Internships</b></h1>
+        <img class="uk-align-center" src="{% static 'App/linkcode_internship_header_img.svg'%}" uk-img>
+
+
+        <div class="uk-grid-match uk-child-width-1-3@m" uk-grid>
+
+
+        </div>
+
+    </div>
+</div>
+
+<!-------------Module 1-------------->
+<div class="uk-section uk-section-primary uk-light">
+    <div class="uk-container">
+        <h1 style="text-align:center">Module 1</h1>
+
+        <h3>Full Stack Java Internship <b>[Mega Project Included]</b></h3>
+
+        <div class="uk-child-width-1-2@s uk-child-width-1-4@m uk-text-center uk-visible@m" uk-grid>
+            {% for x in tech_java %}
+            <div>
+                <div class="uk-card uk-card-default uk-card-body" uk-tooltip="{{x.tech_name}}">
+                    <img src="/media/{{x.tech_img}}" style="height:20vh" uk-img>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <!---For Mobile View----->
+
+        <div class="uk-slider-container-offset uk-hidden@m" uk-slider="autoplay: true;autoplay-interval:1000">
+
+            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+
+                <ul class="uk-slider-items uk-child-width-1-1@s uk-grid">
+                    {% for x in tech_java %}
+                    <li>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-body" uk-tooltip="{{x.tech_name}}">
+                                <img class="uk-align-center" src="/media/{{x.tech_img}}" style="height:20vh" uk-img>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+
+                </ul>
+
+                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" style="color:gold"
+                   uk-slidenav-previous
+                   uk-slider-item="previous"></a>
+                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" style="color:gold"
+                   uk-slidenav-next
+                   uk-slider-item="next"></a>
+
+
+            </div>
+
+        </div>
+        <form method="post">{% csrf_token %}
+            <input name="username" type="hidden" value="{{request.user}}">
+            <input name="email" type="hidden" value="{{request.user.email}}">
+            <input name="course" type="hidden" value="Java-Internship">
+            <button class="uk-button uk-button-secondary" style="border-radius:30px;margin-top:30px" type="submit">Enroll now For module</button>
+        </form>
+    </div>
+</div>
+
+<!-----------------Module 2--------------------->
+<div class="uk-section uk-section-muted uk-light" style="background-color:#FFC10D">
+    <div class="uk-container">
+        <h1 style="text-align:center">Module 2</h1>
+
+        <h3>Full Stack Python Internship <b>[Mega Project Included]</b></h3>
+
+        <div class="uk-child-width-1-2@s uk-child-width-1-4@m uk-text-center uk-visible@m" uk-grid>
+            {% for x in tech_python %}
+            <div>
+                <div class="uk-card uk-card-default uk-card-body" uk-tooltip="{{x.tech_name}}">
+                    <img src="/media/{{x.tech_img}}" style="height:20vh" uk-img>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <!---For Mobile View----->
+
+        <div class="uk-slider-container-offset uk-hidden@m" uk-slider="autoplay: true;autoplay-interval:1000">
+
+            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+
+                <ul class="uk-slider-items uk-child-width-1-1@s uk-grid">
+                    {% for x in tech_python %}
+                    <li>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-body" uk-tooltip="{{x.tech_name}}">
+                                <img class="uk-align-center" src="/media/{{x.tech_img}}" style="height:20vh" uk-img>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+
+                </ul>
+
+                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" style="color:gold"
+                   uk-slidenav-previous
+                   uk-slider-item="previous"></a>
+                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" style="color:gold"
+                   uk-slidenav-next
+                   uk-slider-item="next"></a>
+
+
+            </div>
+        </div>
+        <form method="post">{% csrf_token %}
+            <input name="username" type="hidden" value="{{request.user}}">
+            <input name="email" type="hidden" value="{{request.user.email}}">
+            <input name="course" type="hidden" value="Python-Internship">
+            <button class="uk-button uk-button-secondary" style="border-radius:30px;margin-top:30px" type="submit">Enroll now For module 2</button>
+        </form>
+    </div>
+</div>
+
+<!--------------_Common------------------->
+<div class="uk-section uk-section-secondary uk-light">
+    <div class="uk-container">
+        <h1 style="text-align:center">What's Common in Module 1 & Module 2</h1>
+
+
+        <div class="uk-child-width-1-2@s uk-child-width-1-4@m uk-text-center uk-visible@m" uk-grid>
+            {% for x in tech_common %}
+            <div>
+                <div class="uk-card uk-card-default uk-card-body" uk-tooltip="{{x.tech_name}}">
+                    <img src="/media/{{x.tech_img}}" style="height:20vh" uk-img>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <!---For Mobile View----->
+
+        <div class="uk-slider-container-offset uk-hidden@m" uk-slider="autoplay: true;autoplay-interval:1000">
+
+            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+
+                <ul class="uk-slider-items uk-child-width-1-1@s uk-grid">
+                    {% for x in tech_common %}
+                    <li>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-body" uk-tooltip="{{x.tech_name}}">
+                                <img class="uk-align-center" src="/media/{{x.tech_img}}" style="height:20vh" uk-img>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+
+                </ul>
+
+                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" style="color:gold"
+                   uk-slidenav-previous
+                   uk-slider-item="previous"></a>
+                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" style="color:gold"
+                   uk-slidenav-next
+                   uk-slider-item="next"></a>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!---------------Module 3---------------->
+<div class="uk-section uk-section-muted uk-light" style="background-color: #f9c5d1;
+background-image: linear-gradient(315deg, #f9c5d1 0%, #9795ef 74%);">
+    <div class="uk-container">
+        <h1 style="text-align:center">Module 3</h1>
+
+        <h3>Mean Stack Internship <b>[Mega Project Included]</b></h3>
+        <h4>Prerequisites - *(Html5,Css3,Bootstrap,JavaScript)</h4>
+
+        <div class="uk-child-width-1-2@s uk-child-width-1-4@m uk-text-center uk-visible@m" uk-grid>
+            {% for x in tech_mean %}
+            <div>
+                <div class="uk-card uk-card-default uk-card-body" uk-tooltip="{{x.tech_name}}">
+                    <img src="/media/{{x.tech_img}}" style="height:20vh" uk-img>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <!---For Mobile View----->
+
+        <div class="uk-slider-container-offset uk-hidden@m" uk-slider="autoplay: true;autoplay-interval:1000">
+
+            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+
+                <ul class="uk-slider-items uk-child-width-1-1@s uk-grid">
+                    {% for x in tech_mean %}
+                    <li>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-body" uk-tooltip="{{x.tech_name}}">
+                                <img class="uk-align-center" src="/media/{{x.tech_img}}" style="height:20vh" uk-img>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+
+                </ul>
+
+                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" style="color:gold"
+                   uk-slidenav-previous
+                   uk-slider-item="previous"></a>
+                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" style="color:gold"
+                   uk-slidenav-next
+                   uk-slider-item="next"></a>
+
+
+            </div>
+        </div>
+
+        <form method="post">{% csrf_token %}
+            <input name="username" type="hidden" value="{{request.user}}">
+            <input name="email" type="hidden" value="{{request.user.email}}">
+            <input name="course" type="hidden" value="MEAN-Internship">
+            <button class="uk-button uk-button-secondary" style="border-radius:30px;margin-top:30px" type="submit">Enroll now For module 3</button>
+        </form>
+    </div>
+</div>
+
+
+<!------Module 4------------->
+<div class="uk-section uk-section-muted uk-light" style="background-color: #4dccc6;
+background-image: linear-gradient(315deg, #4dccc6 0%, #96e4df 74%);">
+    <div class="uk-container">
+        <h1 style="text-align:center">Module 4</h1>
+
+        <h3 style="text-align:center">Machine Learning And AI <b>[Mega Project Included]</b></h3>
+        <h4 style="text-align:center">Prerequisites - *(Above modules Should Be Completed First)</h4>
+
+
+        <div class="uk-child-width-1-2@s" uk-grid>
+            <div>
+                <div class="uk-light uk-background-primary uk-padding" style="border-radius:30px">
+                    <img class="uk-align-center" src="{% static 'App/undraw_sentiment_analysis_jp6w (1).svg' %}"
+                         style="width:40vh" uk-img>
+                    <h3 style="text-align:center">LinkCode Machine Learning / AI </h3>
+                </div>
+            </div>
+
+            <div>
+                <div class="uk-light uk-background-primary uk-padding" style="border-radius:30px">
+                    <img class="uk-align-center" src="{% static 'App/undraw_cloud_hosting_aodd.svg' %}"
+                         style="width:40vh" uk-img>
+                    <h3 style="text-align:center">Learn Cloud Deployment</h3>
+                </div>
+                <div class="uk-light uk-background-primary uk-padding" style="margin-top:30px;border-radius:30px">
+                    <p style="text-align:center;font-size:2vh"><b>Learn DevOps Implementation,Agile,AWS,Heroku Deployment</b></p>
+                </div>
+            </div>
+        </div>
+
+        <form method="post">{% csrf_token %}
+            <input name="username" type="hidden" value="{{request.user}}">
+            <input name="email" type="hidden" value="{{request.user.email}}">
+            <input name="course" type="hidden" value="ML-Cloud-Internship">
+            <button class="uk-button uk-button-secondary" style="border-radius:30px;margin-top:30px" type="submit">Enroll now For module 4</button>
+        </form>
+
+
+    </div>
+</div>
+
+
+<!----------------Complementary---------------->
+
+<style>
+    .bd{
+    background-color: #3bb78f;
+background-image: linear-gradient(315deg, #3bb78f 0%, #0bab64 74%);
+    }
+
+</style>
+
+<div class="uk-section uk-section-muted" style="background-color: #ffcfdf;
+background-image: linear-gradient(315deg, #ffcfdf 0%, #b0f3f1 74%);">
+    <div class="uk-container">
+        <h3>In Addition to Any Above Module Canditate Can Attend Technical Interview Session</h3>
+        <span class="uk-badge uk-padding bd" style="margin-top:10px">Technical- C,C++,DS-Algo</span>
+        <span class="uk-badge uk-padding bd" style="margin-top:10px">Coding Challenges</span>
+        <span class="uk-badge uk-padding bd" style="margin-top:10px">Communications</span>
+        <span class="uk-badge uk-padding bd" style="margin-top:10px">Aptitude</span>
+        <span class="uk-badge uk-padding bd" style="margin-top:10px">Presentation</span>
+        <span class="uk-badge uk-padding bd" style="margin-top:10px">Hr Discussion</span>
+
+    </div>
+</div>
+
+
+{% endblock %}

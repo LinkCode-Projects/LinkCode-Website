@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static%}
+    <title>{% block title%}{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.8/dist/css/uikit.min.css"/>
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.8/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.8/dist/js/uikit-icons.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+<!--
+ <style>
+
+
+     .loader_bg{
+     position:fixed;
+     z-index:999999;
+     background:#fff;
+     width:100%;
+     height:100%;
+     }
+     .loader{
+     border:0 solid transparent;
+     border-radius:50%;
+     width:150px;
+     height:150px;
+     position:absolute;
+     top:calc(50vh - 75px);
+     left:calc(50vw - 75px);
+     }
+     .loader:before,.loader:after{
+     content:'';
+     border: 1em solid #ff5733;
+     border-radius:50%;
+     width:inherit;
+     height:inherit;
+     top:0;
+     left:0;
+     animation:loader 2s linear infinite;
+     opacity:0;
+
+     }
+
+     .loader:before{
+     animation-delay:.5s;
+
+     }
+
+     @keyframes loader{
+     0%{
+     transform:scale(0);
+     opacity:0;
+     }
+     50%{
+     opacity:1;
+     }
+     100%{
+     transform:scale(1);
+     opacity:0;
+
+     }
+
+     }
+ </style>
+
+
+ <div class="loader_bg">
+     <div class="loader">
+         <span style="text-align:center" class="uk-align-center" uk-spinner="ratio: 5"></span>
+     </div>
+ </div>
+
+ -->
+
+<!___________________________Navbar_____________________________>
+
+<nav class="uk-navbar-container" uk-navbar style="background:#7986CB">
+    <div class="uk-navbar-left">
+
+        <ul class="uk-navbar-nav">
+            <li class="uk-active"><a href="\" style="color:#fff;font-size:4vh">LinkCode</a></li>
+             <li class="uk-active uk-visible@m"><a href="\" style="color:#fff;">Home</a>
+            <li class="uk-active uk-visible@m"><a href="#" style="color:#fff;">Courses</a>
+
+                <div class="uk-width-large" uk-dropdown>
+                    <div class="uk-dropdown-grid uk-child-width-1-2@m" uk-grid>
+                        <div>
+                            <ul class="uk-nav uk-dropdown-nav">
+                                <li class="uk-active"><a href="#">What We Have?</a></li>
+                                <li><a href="/Course/Python">Full Stack Python</a></li>
+                                <li><a href="/Course/Java">Full Stack Java</a></li>
+                                <li><a href="/Course/C_C++_Data-Structures">Data Structures with C,Cpp</a></li>
+                                <li class="uk-nav-divider"></li>
+                                <li class="uk-nav-header">Web Development</li>
+                                <li><a href="/Course/Web-Development">MEAN Stack</a></li>
+                                <li><a href="/Course/Web-Development">MERN Stack</a></li>
+                                <li><a href="/Course/Web-Development">Django</a></li>
+                                <li class="uk-nav-divider"></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="uk-nav uk-dropdown-nav">
+                                <li class="uk-nav-header">Play with Data</li>
+                                <li class="uk-active"><a href="/Course/Data_Science">DataScience</a></li>
+                                <li class="uk-active"><a href="/Course/Machine-Learning">Machine Learning</a></li>
+                                <li class="uk-active"><a href="/AI">Artificial Intelligence</a></li>
+                                <li class="uk-nav-divider"></li>
+                                <li class="uk-nav-header">Application Development</li>
+                                <li class="uk-active"><a href="/AppDev">Android/IOS+(Flutter)</a></li>
+                                <!--<li class="uk-nav-divider"></li>
+                                <li class="uk-active"><a href="/schedule">Upcoming Courses Schedule</a></li>-->
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            <li class="uk-active uk-visible@m"><a href="#" style="color:#fff;">AboutUs</a>
+                <div uk-dropdown>
+                    <ul class="uk-nav uk-dropdown-nav">
+                        <li class="uk-active"><a href="/review"><b>Student Reviews</b></a></li>
+                        <li class="uk-active"><a href="/review"><b>Placements</b></a></li>
+                    </ul>
+                </div>
+            </li>
+            <!---li class="uk-active uk-visible@m"><a href="/Blog" style="color:#fff;">Blog</a></li--->
+            <li class="uk-active uk-visible@m"><a href="/ContactUs" style="color:#fff;">Contact Us</a></li>
+            <li class="uk-active uk-visible@m"><a href="/post_review" style="color:#fff;">Rate Us</a></li>
+
+             <li class="uk-active uk-visible@m"><a href="/internship" style="color:#fff;">Internship</a>
+
+        </ul>
+
+    </div>
+    <div class="uk-navbar-right">
+
+
+        <ul class="uk-navbar-nav">
+
+            <li class="uk-hidden@m">
+                <a uk-icon="icon:menu;ratio:1.5" class="uk-margin-small-right" style="color:#fff" type="button"
+                   uk-toggle="target: #offcanvas-slide"></a>
+            </li>
+            <!---For Desktop----->
+            {% if user.is_authenticated %}
+            <li class="uk-visible@m">
+                <a href="/Notice" style="color:#fff" uk-icon="icon: bell; ratio: 2"></a>
+            </li>
+
+            <li class="uk-visible@m">
+                <a href="#" style="color:white">{{request.user}}</a>
+                <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li class="uk-active"><a href="/Classes_Enrolled">Courses Enrolled</a></li>
+                        {% if user.is_superuser %}
+                        <li class="uk-active"><a href="/AdminNotifications">Cloud Notifications</a></li>
+                        <li class="uk-active"><a href="/UpdateNotifications">Manage Cloud Notifications</a></li>
+                        <li class="uk-active"><a href="/review_processing">Monitor Reviews</a></li>
+                        {% endif %}
+                        <li class="uk-nav-divider"></li>
+                        <li class="uk-active"><a href="/logout">Logout</a></li>
+
+                    </ul>
+                </div>
+            </li>
+
+
+            {% else %}
+
+
+            <li class="uk-visible@m">
+                <a href="/registration" style="color:#fff">SignUp</a>
+            </li>
+            <li class="uk-visible@m">
+                <a href="/login" style="color:#fff" uk-icon="icon: user; ratio: 2"></a>
+            </li>
+
+            {% endif %}
+
+            <!-------------------------------->
+
+        </ul>
+    </div>
+</nav>
+<!________________________________Navbar________________________________>
+
+{% block body %}
+
+{% endblock %}
+
+
+<!____________Footer________________>
+<!-- Builder #footer -->
+<div class="uk-section-default uk-section uk-section-large"
+     uk-scrollspy="target: [uk-scrollspy-class]; cls: uk-animation-fade; delay: false;">
+    <div class="uk-container">
+        <div class="tm-grid-expand uk-grid-large uk-grid-margin-large uk-grid" uk-grid="">
+            <div class="uk-width-1-2@s uk-width-1-4@m uk-first-column">
+                <div class="uk-margin uk-scrollspy-inview uk-animation-fade" uk-scrollspy-class="" style="">
+                    <h1>LinkCode Technologies</h1>
+                </div>
+                <div class="uk-panel uk-margin uk-width-xlarge uk-scrollspy-inview uk-animation-fade"
+                     uk-scrollspy-class="" style="">Linking To The Corporate World
+                </div>
+            </div>
+            <div class="uk-width-1-2 uk-width-1-4@m uk-grid-margin uk-first-column">
+                <h3 class="uk-h5 uk-scrollspy-inview uk-animation-fade" uk-scrollspy-class="" style="">Courses</h3>
+                <ul class="uk-list uk-scrollspy-inview uk-animation-fade" uk-scrollspy-class="" style="">
+                    <li class="el-item">
+                        <div class="el-content uk-panel"><a href="/explore"
+                                                            class="el-link uk-link-muted uk-margin-remove-last-child">Explore</a>
+                        </div>
+                    </li>
+                    <li class="el-item">
+                        <div class="el-content uk-panel"><a href="/internship"
+                                                            class="el-link uk-link-muted uk-margin-remove-last-child">Internship</a>
+                        </div>
+                    </li>
+                                        
+                    <li class="el-item">
+                        <div class="el-content uk-panel"><a href="/ContactUs"
+                                                            class="el-link uk-link-muted uk-margin-remove-last-child">ContactUs</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="uk-width-1-2 uk-width-1-4@m uk-grid-margin">
+                <h3 class="uk-h5 uk-scrollspy-inview uk-animation-fade" uk-scrollspy-class="" style="">Company</h3>
+                <ul class="uk-list uk-scrollspy-inview uk-animation-fade" uk-scrollspy-class="" style="">
+                    <li class="el-item">
+                    <li class="el-item">
+                        <div class="el-content uk-panel"><a href="#"
+                                                            class="el-link uk-link-muted uk-margin-remove-last-child">Pricing</a>
+                        </div>
+                    </li>
+                    <li class="el-item">
+                        <div class="el-content uk-panel"><a
+                                href="https://play.google.com/store/apps/details?id=co.shield.wcoeg&hl=en&gl=US"
+                                class="el-link uk-link-muted uk-margin-remove-last-child">LinkCode App</a></div>
+                    </li>
+                </ul>
+
+
+            </div>
+
+            <div class="uk-width-1-2@s uk-width-1-4@m uk-grid-margin uk-first-column">
+
+
+                <h3 class="uk-h5 uk-scrollspy-inview uk-animation-fade" uk-scrollspy-class="" style="">Mail Us</h3>
+                <div class="uk-panel uk-margin uk-scrollspy-inview uk-animation-fade" uk-scrollspy-class="" style="">
+                    info@linkcode.in
+                </div>
+                <div class="uk-margin uk-scrollspy-inview uk-animation-fade" uk-scrollspy-class="" style="">
+                    <div class="uk-child-width-auto uk-grid-medium uk-grid" uk-grid="">
+                        <div class="uk-first-column">
+                            <a class="el-link uk-link-muted uk-icon" rel="noreferrer" href="https://www.instagram.com/"
+                               uk-icon="icon: instagram; width: 16; height: 16;">
+                                <svg width="16" height="16" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
+                                     data-svg="instagram">
+                                    <path d="M13.55,1H6.46C3.45,1,1,3.44,1,6.44v7.12c0,3,2.45,5.44,5.46,5.44h7.08c3.02,0,5.46-2.44,5.46-5.44V6.44 C19.01,3.44,16.56,1,13.55,1z M17.5,14c0,1.93-1.57,3.5-3.5,3.5H6c-1.93,0-3.5-1.57-3.5-3.5V6c0-1.93,1.57-3.5,3.5-3.5h8 c1.93,0,3.5,1.57,3.5,3.5V14z"></path>
+                                    <circle cx="14.87" cy="5.26" r="1.09"></circle>
+                                    <path d="M10.03,5.45c-2.55,0-4.63,2.06-4.63,4.6c0,2.55,2.07,4.61,4.63,4.61c2.56,0,4.63-2.061,4.63-4.61 C14.65,7.51,12.58,5.45,10.03,5.45L10.03,5.45L10.03,5.45z M10.08,13c-1.66,0-3-1.34-3-2.99c0-1.65,1.34-2.99,3-2.99s3,1.34,3,2.99 C13.08,11.66,11.74,13,10.08,13L10.08,13L10.08,13z"></path>
+                                </svg>
+                            </a></div>
+                        <div>
+                            <a class="el-link uk-link-muted uk-icon" rel="noreferrer" href="https://twitter.com/"
+                               uk-icon="icon: twitter; width: 16; height: 16;">
+                                <svg width="16" height="16" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
+                                     data-svg="twitter">
+                                    <path d="M19,4.74 C18.339,5.029 17.626,5.229 16.881,5.32 C17.644,4.86 18.227,4.139 18.503,3.28 C17.79,3.7 17.001,4.009 16.159,4.17 C15.485,3.45 14.526,3 13.464,3 C11.423,3 9.771,4.66 9.771,6.7 C9.771,6.99 9.804,7.269 9.868,7.539 C6.795,7.38 4.076,5.919 2.254,3.679 C1.936,4.219 1.754,4.86 1.754,5.539 C1.754,6.82 2.405,7.95 3.397,8.61 C2.79,8.589 2.22,8.429 1.723,8.149 L1.723,8.189 C1.723,9.978 2.997,11.478 4.686,11.82 C4.376,11.899 4.049,11.939 3.713,11.939 C3.475,11.939 3.245,11.919 3.018,11.88 C3.49,13.349 4.852,14.419 6.469,14.449 C5.205,15.429 3.612,16.019 1.882,16.019 C1.583,16.019 1.29,16.009 1,15.969 C2.635,17.019 4.576,17.629 6.662,17.629 C13.454,17.629 17.17,12 17.17,7.129 C17.17,6.969 17.166,6.809 17.157,6.649 C17.879,6.129 18.504,5.478 19,4.74"></path>
+                                </svg>
+                            </a></div>
+                        <div>
+                            <a class="el-link uk-link-muted uk-icon" rel="noreferrer" href="https://facebook.com/"
+                               uk-icon="icon: facebook; width: 16; height: 16;">
+                                <svg width="16" height="16" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
+                                     data-svg="facebook">
+                                    <path d="M11,10h2.6l0.4-3H11V5.3c0-0.9,0.2-1.5,1.5-1.5H14V1.1c-0.3,0-1-0.1-2.1-0.1C9.6,1,8,2.4,8,5v2H5.5v3H8v8h3V10z"></path>
+                                </svg>
+                            </a></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="uk-section-default uk-section uk-section-xsmall uk-padding-remove-top">
+    <div class="uk-container">
+        <div class="tm-grid-expand uk-grid-row-collapse uk-margin uk-grid uk-grid-stack" uk-grid="">
+            <div class="uk-width-1-2@s uk-first-column">
+                <div class="uk-panel uk-text-small uk-margin">©
+                    
+                    
+                    LinkCode Technologies. All rights reserved.
+                </div>
+            </div>
+            <div class="uk-width-1-2@s uk-grid-margin uk-first-column">
+                <div class="uk-panel uk-text-small uk-margin uk-text-right@s uk-text-left">Powered by <a
+                        class="uk-link-text" href="\">LinkCode</a>.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+<!----------------------         Footer       ------------------------>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous"></script>
+
+<script>
+        //setTimeout(function(){
+        //$('.loader_bg').fadeToggle();
+        //},1500);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+<!------------Overlay----------->
+<div id="offcanvas-slide" uk-offcanvas="overlay: true" style="background:#7986CB">
+    <div class="uk-offcanvas-bar" style="background:#7986CB">
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
+        
+        {% if user.is_authenticated %}
+        <h3>Welcome-<br>{{request.user}}</h3>
+        <hr>
+        
+        <a href="/logout">
+            <span uk-icon="icon:  sign-out; ratio:2"></span><span
+                style="font-size:20px;margin-left:4px">Logout</span><br>
+        </a>
+        <hr>
+        <a href="/Notice">
+            <span uk-icon="icon: bell; ratio:2"></span><span style="font-size:20px;margin-left:4px">Notifications</span><br>
+        </a>
+        <hr>
+        {% else %}
+        
+        <a href="\">
+            <span style="font-size:20px;margin-left:4px"><b><h2>LinkCode</h2></b></span><br>
+        </a>
+        <hr>
+        
+        <a href="/login">
+            <span uk-icon="icon: user; ratio:2"></span><span style="font-size:20px;margin-left:4px">Login</span><br>
+        </a>
+        <hr>
+        {% endif %}
+        <a href="\">
+            <span uk-icon="icon: home; ratio:2"></span><span
+                style="font-size:20px;margin-left:4px">Home</span><br>
+        </a>
+        <hr>
+        
+        
+        <a href="/Classes_Enrolled">
+            <span uk-icon="icon: lifesaver; ratio:2"></span><span
+                style="font-size:20px;margin-left:4px">Courses Enrolled</span><br>
+        </a>
+        <hr>
+        <a href="/internship">
+            <span uk-icon="icon:  info; ratio:2"></span><span
+                style="font-size:20px;margin-left:4px">Internships</span><br>
+        </a>
+        <hr>
+                <a href="/compiler">
+            <span uk-icon="icon:  code; ratio:2"></span><span
+                style="font-size:20px;margin-left:4px">Online Compiler</span><br>
+        </a>
+        <hr>
+        <a href="/review">
+            <span uk-icon="icon: commenting; ratio:2"></span><span
+                style="font-size:20px;margin-left:4px">Reviews</span><br>
+        </a>
+        <hr>
+                <a href="/post_review">
+            <span uk-icon="icon: star; ratio:2"></span><span
+                style="font-size:20px;margin-left:4px">Rate us</span><br>
+        </a>
+        <!--
+        <a href="/Blog">
+        <span uk-icon="icon: social; ratio:2"></span><span style="font-size:20px;margin-left:4px">Blog</span><br>
+        </a>-->
+        <hr>
+        {% if user.is_superuser%}
+        
+        <a href="/AdminNotifications">
+            <span uk-icon="icon: cloud-upload; ratio:2"></span><span style="font-size:20px;margin-left:4px">Cloud Notifications</span><br>
+        </a>
+        <hr>
+                <a href="/review_processing">
+            <span uk-icon="icon: check; ratio:2"></span><span style="font-size:20px;margin-left:4px">Monitor Reviews</span><br>
+        </a>
+        
+        {% endif %}
+        <hr>
+    </div>
+</div>
+
+
+{% block js %} {% endblock %}
+
+
+</body>
+</html>
